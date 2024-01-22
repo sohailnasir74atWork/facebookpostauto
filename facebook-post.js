@@ -20,7 +20,7 @@ async function generatePost() {
   const completion = await openai.chat.completions.create({
     messages: [
       { role: "system", content: "You are a helpful assistant." },
-      { role: "user", content: `Write a short 3 line post about ${topic}.` },
+      { role: "user", content: `Write a short 3 line content about ${topic}.` },
     ],
     model: "gpt-3.5-turbo",
   });
@@ -47,7 +47,7 @@ async function postOnPage(message) {
 }
 
 // Schedule post every day at the specified time
-schedule.scheduleJob("52 20 * * *", async () => {
+schedule.scheduleJob("7 21 * * *", async () => {
   const postContent = await generatePost();
   postOnPage(postContent);
 });

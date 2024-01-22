@@ -47,7 +47,7 @@ async function postOnPage(message) {
 }
 
 // Schedule post every day at the specified time
-schedule.scheduleJob("40 20 * * *", async () => {
+schedule.scheduleJob("52 20 * * *", async () => {
   const postContent = await generatePost();
   postOnPage(postContent);
 });
